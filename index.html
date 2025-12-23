@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizations for [Your Paper Title]</title>
+    <title>Drought-Induced Inflation: Maize Market Visualizations</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
             line-height: 1.6;
@@ -20,23 +20,68 @@
         }
         h1 {
             color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 0;
         }
         .visualization {
-            background: #f9f9f9;
-            border-left: 4px solid #3498db;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 4px;
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 40px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        .chart-placeholder {
-            background: #ecf0f1;
-            height: 300px;
+        .viz-title {
+            color: #2980b9;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .chart-container {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+            min-height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
+        }
+        .viz-description {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
             margin: 20px 0;
-            color: #7f8c8d;
+        }
+        .nav-btn {
+            padding: 8px 16px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .nav-btn:hover {
+            background: #2980b9;
+        }
+        .drought-years {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #f1c40f;
+            margin: 20px 0;
         }
         footer {
             margin-top: 50px;
@@ -44,50 +89,189 @@
             border-top: 1px solid #eee;
             font-size: 0.9em;
             color: #777;
+            text-align: center;
+        }
+        .data-source {
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            .chart-container {
+                min-height: 400px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>📊 Visualizations for [Your Paper Title]</h1>
-        <p>Interactive charts and data explorations from my research paper. 
-           <a href="[Link to your paper]" target="_blank">Read the full paper here</a>.</p>
+        <h1>🌽 Drought-Induced Inflation: Mexican Maize Market Analysis</h1>
+        <p class="subtitle">Interactive visualizations for the paper "Drought-Induced Inflation"</p>
+        <p>Exploring the impacts of droughts (2011, 2012, 2023, 2024) on maize prices, production volume, and yields across Mexico.</p>
+        
+        <div class="drought-years">
+            <strong>Study Periods:</strong> 
+            <span class="year-tag">2011 Drought</span> • 
+            <span class="year-tag">2012 Drought</span> • 
+            <span class="year-tag">2023 Drought</span> • 
+            <span class="year-tag">2024 Drought</span>
+        </div>
     </header>
 
     <section>
-        <h2>Key Findings Visualized</h2>
+        <h2>📊 Core Visualizations</h2>
+        <p>Click the links below to jump to specific visualizations:</p>
         
-        <div class="visualization">
-            <h3>Figure 1: Main Result</h3>
-            <p>This chart shows the relationship between X and Y across different conditions.</p>
-            <div class="chart-placeholder">
-                [Your first chart will go here]
-            </div>
-            <small>Data source: [Brief description]</small>
+        <div class="nav-buttons">
+            <a href="#price-viz" class="nav-btn">Maize Price Analysis</a>
+            <a href="#production-viz" class="nav-btn">Production Volume</a>
+            <a href="#yield-viz" class="nav-btn">Yield Analysis</a>
         </div>
 
-        <div class="visualization">
-            <h3>Figure 2: Secondary Analysis</h3>
-            <p>Comparison of groups A, B, and C over time.</p>
-            <div class="chart-placeholder">
-                [Your second chart will go here]
+        <!-- Visualization 1: Maize Price -->
+        <div id="price-viz" class="visualization">
+            <h3 class="viz-title">Figure 1: Maize Price Dynamics During Drought Periods</h3>
+            
+            <div class="viz-description">
+                <p>This visualization shows how maize prices responded to drought conditions across different Mexican states. The analysis captures:</p>
+                <ul>
+                    <li>Price spikes during drought months</li>
+                    <li>Regional variations in price sensitivity</li>
+                    <li>Comparison between drought and non-drought years</li>
+                    <li>Time-lagged effects of drought on prices</li>
+                </ul>
             </div>
-            <small>Interactive version: Hover to see values</small>
+            
+            <div class="chart-container">
+                <!-- Your maize_price.html will be embedded here -->
+                <iframe src="maize_price.html" width="100%" height="500" 
+                        frameborder="0" style="border-radius: 4px;"></iframe>
+            </div>
+            
+            <div class="data-source">
+                Data source: [Your price data source] | Methodology: [Brief description of estimation]
+            </div>
+        </div>
+
+        <!-- Visualization 2: Production Volume -->
+        <div id="production-viz" class="visualization">
+            <h3 class="viz-title">Figure 2: Maize Production Volume Changes</h3>
+            
+            <div class="viz-description">
+                <p>This chart illustrates the impact of droughts on total maize production volume:</p>
+                <ul>
+                    <li>Percentage decline in production during drought years</li>
+                    <li>State-level production changes</li>
+                    <li>Recovery patterns in post-drought periods</li>
+                    <li>Comparison across the four drought events</li>
+                </ul>
+            </div>
+            
+            <div class="chart-container">
+                <!-- Your maize_production_volume.html will be embedded here -->
+                <iframe src="maize_production_volume.html" width="100%" height="500" 
+                        frameborder="0" style="border-radius: 4px;"></iframe>
+            </div>
+            
+            <div class="data-source">
+                Data source: [Your production data source] | Units: Metric tons
+            </div>
+        </div>
+
+        <!-- Visualization 3: Yield -->
+        <div id="yield-viz" class="visualization">
+            <h3 class="viz-title">Figure 3: Maize Yield per Hectare Analysis</h3>
+            
+            <div class="viz-description">
+                <p>This visualization examines yield efficiency during drought conditions:</p>
+                <ul>
+                    <li>Yield losses (tons/hectare) by drought intensity</li>
+                    <li>Geographic patterns of yield resilience</li>
+                    <li>Irrigated vs. rainfed yield differences</li>
+                    <li>Long-term yield trends with drought shocks</li>
+                </ul>
+            </div>
+            
+            <div class="chart-container">
+                <!-- Your maize_yield.html will be embedded here -->
+                <iframe src="maize_yield.html" width="100%" height="500" 
+                        frameborder="0" style="border-radius: 4px;"></iframe>
+            </div>
+            
+            <div class="data-source">
+                Data source: [Your yield data source] | Units: Tons per hectare
+            </div>
         </div>
     </section>
 
     <section>
-        <h2>About This Project</h2>
-        <p>This site hosts interactive versions of the figures from our paper 
-           "<em>[Paper Title]</em>" published in [Journal/Conference, Year].</p>
-        <p><strong>Tools used</strong>: Python/R, Plotly/D3.js, GitHub Pages</p>
+        <h2>📈 Key Insights from the Visualizations</h2>
+        <div class="viz-description">
+            <p><strong>Main Findings:</strong></p>
+            <ol>
+                <li><strong>Price elasticity:</strong> Maize prices show [X]% increase for every [Y]% reduction in yield during droughts.</li>
+                <li><strong>Temporal patterns:</strong> Price impacts peak [Z] months after drought onset, while yield impacts are immediate.</li>
+                <li><strong>Regional disparities:</strong> Northern states experienced [A]% greater price inflation compared to southern states.</li>
+                <li><strong>2023-2024 comparison:</strong> The recent droughts had [B]% more severe impact than 2011-2012, suggesting changing vulnerability patterns.</li>
+            </ol>
+            <p><em>Note: Replace these with your actual findings</em></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>🔍 How to Use These Visualizations</h2>
+        <div class="viz-description">
+            <p><strong>Interactive features may include:</strong></p>
+            <ul>
+                <li><strong>Hover:</strong> View exact values for specific years/regions</li>
+                <li><strong>Click:</strong> Select/deselect specific drought years for comparison</li>
+                <li><strong>Zoom:</strong> Focus on specific time periods or regions</li>
+                <li><strong>Filter:</strong> Show/hide different states or metrics</li>
+            </ul>
+            <p>Each visualization is self-contained and works in modern web browsers.</p>
+        </div>
     </section>
 
     <footer>
-        <p>Created by [Your Name] • 
-           <a href="https://github.com/[your-username]/[repo-name]">View source on GitHub</a> • 
-           <a href="[DOI or paper link]">Cite the paper</a></p>
-        <p>Last updated: [Date]</p>
+        <p>📄 <strong>Academic Reference:</strong> 
+           <a href="[DOI or paper link]" target="_blank">Full paper: "Drought-Induced Inflation"</a>
+        </p>
+        <p>👨‍💻 <strong>Repository:</strong> 
+           <a href="https://github.com/[your-username]/[repo-name]" target="_blank">View source code and data on GitHub</a>
+        </p>
+        <p>📧 <strong>Contact:</strong> [Your Name] • [Your Email/Institution]</p>
+        <p>🔄 Last updated: <span id="current-date"></span></p>
+        <p style="font-size: 0.8em; color: #999;">
+            Visualizations created with [Plotly/D3.js/Other] • Hosted on GitHub Pages
+        </p>
     </footer>
+
+    <script>
+        // Add current date to footer
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Smooth scrolling for navigation buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId !== '#') {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
