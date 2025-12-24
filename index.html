@@ -12,11 +12,16 @@
             padding: 20px;
             line-height: 1.6;
             color: #333;
+            background-color: #f8f9fa;
         }
         header {
             border-bottom: 2px solid #f0f0f0;
             padding-bottom: 20px;
             margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         h1 {
             color: #2c3e50;
@@ -29,35 +34,39 @@
         }
         .visualization {
             background: #fff;
-            border: 1px solid #e1e8ed;
-            border-radius: 8px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 30px;
             margin: 40px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border: 1px solid #e1e8ed;
         }
         .viz-title {
             color: #2980b9;
             border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             margin-top: 0;
+            margin-bottom: 20px;
         }
         .chart-container {
             background: #f8f9fa;
-            border-radius: 6px;
-            padding: 15px;
+            border-radius: 12px;
+            padding: 20px;
             margin: 20px 0;
-            border: 1px solid #e9ecef;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: 3px solid #dee2e6;
+            height: 950px;
+            max-height: 950px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
         }
         .viz-description {
             background: #f9f9f9;
-            padding: 15px;
+            padding: 20px;
             border-left: 4px solid #3498db;
-            margin: 15px 0;
-            border-radius: 4px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 0.95em;
         }
         .nav-buttons {
             display: flex;
@@ -66,21 +75,27 @@
             flex-wrap: wrap;
         }
         .nav-btn {
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: #3498db;
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 8px;
             font-weight: 500;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
+            border: 2px solid #3498db;
         }
         .nav-btn:hover {
             background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(41, 128, 185, 0.2);
+        }
+        .nav-btn:active {
+            transform: translateY(0);
         }
         .drought-years {
             background: #fff8e1;
-            padding: 15px;
-            border-radius: 6px;
+            padding: 20px;
+            border-radius: 8px;
             border-left: 4px solid #f1c40f;
             margin: 20px 0;
         }
@@ -96,31 +111,97 @@
             font-size: 0.85em;
             color: #666;
             font-style: italic;
-            margin-top: 10px;
+            margin-top: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
         }
         .year-tag {
             background: #e74c3c;
             color: white;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            margin: 0 2px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 0 3px;
+            display: inline-block;
         }
         .methodology-note {
             background: #e8f4fd;
-            padding: 12px;
+            padding: 15px;
             border-left: 4px solid #3498db;
-            margin: 15px 0;
-            border-radius: 4px;
+            margin: 20px 0;
+            border-radius: 8px;
             font-size: 0.9em;
         }
+        .methodology-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        .methodology-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        /* Custom Scrollbar Styling */
+        .chart-container::-webkit-scrollbar {
+            width: 14px;
+        }
+        .chart-container::-webkit-scrollbar-track {
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            margin: 4px;
+        }
+        .chart-container::-webkit-scrollbar-thumb {
+            background: #adb5bd;
+            border-radius: 8px;
+            border: 3px solid #f8f9fa;
+        }
+        .chart-container::-webkit-scrollbar-thumb:hover {
+            background: #6c757d;
+        }
+        
+        /* For Firefox */
+        .chart-container {
+            scrollbar-width: thin;
+            scrollbar-color: #adb5bd #f8f9fa;
+        }
+        
+        /* Plot iframe styling */
+        .chart-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        /* Additional styling for better spacing */
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 12px 12px 0 0;
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 15px;
                 margin: 20px auto;
             }
             .chart-container {
-                min-height: 400px;
+                height: 700px;
+                max-height: 700px;
+                padding: 15px;
+            }
+            .visualization {
+                padding: 20px;
             }
             .nav-buttons {
                 flex-direction: column;
@@ -128,6 +209,45 @@
             .nav-btn {
                 text-align: center;
             }
+        }
+        
+        @media (max-width: 480px) {
+            .chart-container {
+                height: 600px;
+                max-height: 600px;
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -175,8 +295,7 @@
             
             <div class="chart-container">
                 <!-- Your maize_price.html will be embedded here -->
-                <iframe src="maize_price.html" width="100%" height="500" 
-                        frameborder="0" style="border-radius: 4px;"></iframe>
+                <iframe src="maize_price.html" title="Maize Price Analysis"></iframe>
             </div>
             
             <div class="data-source">
@@ -200,8 +319,7 @@
             
             <div class="chart-container">
                 <!-- Your maize_production_volume.html will be embedded here -->
-                <iframe src="maize_production_volume.html" width="100%" height="500" 
-                        frameborder="0" style="border-radius: 4px;"></iframe>
+                <iframe src="maize_production_volume.html" title="Maize Production Volume"></iframe>
             </div>
             
             <div class="data-source">
@@ -225,8 +343,7 @@
             
             <div class="chart-container">
                 <!-- Your maize_yield.html will be embedded here -->
-                <iframe src="maize_yield.html" width="100%" height="500" 
-                        frameborder="0" style="border-radius: 4px;"></iframe>
+                <iframe src="maize_yield.html" title="Maize Yield Analysis"></iframe>
             </div>
             
             <div class="data-source">
@@ -235,11 +352,9 @@
         </div>
 
         <!-- NEW SECTION: Farming Method Analysis -->
-        <div class="visualization" style="background: #f0f7ff; border-left: 5px solid #2c5282; margin-top: 60px;">
-            <h2 style="color: #2c5282; text-align: center;">🌱 Farming Method Analysis</h2>
-            <p style="text-align: center; color: #4a5568;">
-                The following visualizations differentiate between irrigated and rainfed maize production methods
-            </p>
+        <div class="methodology-section">
+            <h2>🌱 Farming Method Analysis</h2>
+            <p>The following visualizations differentiate between irrigated and rainfed maize production methods to understand differential drought impacts.</p>
         </div>
 
         <!-- NEW Visualization 4: Price by Farming Method -->
@@ -262,8 +377,7 @@
             
             <div class="chart-container">
                 <!-- Your maize_price_irri.html will be embedded here -->
-                <iframe src="maize_price_irri.html" width="100%" height="500" 
-                        frameborder="0" style="border-radius: 4px;"></iframe>
+                <iframe src="maize_price_irri.html" title="Maize Price by Farming Method"></iframe>
             </div>
             
             <div class="data-source">
@@ -287,8 +401,7 @@
             
             <div class="chart-container">
                 <!-- Your maize_production_volume_irri.html will be embedded here -->
-                <iframe src="maize_production_volume_irri.html" width="100%" height="500" 
-                        frameborder="0" style="border-radius: 4px;"></iframe>
+                <iframe src="maize_production_volume_irri.html" title="Maize Production Volume by Farming Method"></iframe>
             </div>
             
             <div class="data-source">
@@ -312,8 +425,7 @@
             
             <div class="chart-container">
                 <!-- Your maize_yield_irri.html will be embedded here -->
-                <iframe src="maize_yield_irri.html" width="100%" height="500" 
-                        frameborder="0" style="border-radius: 4px;"></iframe>
+                <iframe src="maize_yield_irri.html" title="Maize Yield by Farming Method"></iframe>
             </div>
             
             <div class="data-source">
@@ -349,7 +461,7 @@
                 <li><strong>Filter:</strong> Show/hide different states, metrics, or farming methods</li>
                 <li><strong>Toggle:</strong> Switch between irrigated and rainfed views in the farming method visualizations</li>
             </ul>
-            <p>Each visualization is self-contained and works in modern web browsers.</p>
+            <p><strong>Visualization Navigation:</strong> All charts are presented in scrollable containers with custom styling. Use the scrollbars to navigate through larger plots while maintaining the header visibility.</p>
         </div>
     </section>
 
@@ -363,9 +475,12 @@
         <p>📧 <strong>Contact:</strong> [Your Name] • [Your Email/Institution]</p>
         <p>🔄 Last updated: <span id="current-date"></span></p>
         <p style="font-size: 0.8em; color: #999;">
-            Visualizations created with [Plotly/D3.js/Other] • Hosted on GitHub Pages
+            Visualizations created with Plotly/D3.js • Container height: 950px with custom scrollbars • Hosted on GitHub Pages
         </p>
     </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
     <script>
         // Add current date to footer
@@ -388,6 +503,38 @@
                 }
             });
         });
+        
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // Ensure iframes load properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframes = document.querySelectorAll('.chart-container iframe');
+            iframes.forEach(iframe => {
+                iframe.onload = function() {
+                    // Add a small delay to ensure content is fully loaded
+                    setTimeout(() => {
+                        iframe.style.opacity = '1';
+                    }, 100);
+                };
+                iframe.style.opacity = '0';
+                iframe.style.transition = 'opacity 0.3s ease';
+            });
+        });
+        
+        // Relayout plots after a delay (similar to your R code)
+        setTimeout(function() {
+            // This would typically be handled by the Plotly widgets themselves
+            console.log('Visualizations loaded. Scroll to explore the interactive plots.');
+        }, 500);
     </script>
 </body>
 </html>
