@@ -63,6 +63,7 @@
             display: flex;
             gap: 10px;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
         .nav-btn {
             padding: 8px 16px;
@@ -97,6 +98,22 @@
             font-style: italic;
             margin-top: 10px;
         }
+        .year-tag {
+            background: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin: 0 2px;
+        }
+        .methodology-note {
+            background: #e8f4fd;
+            padding: 12px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -104,6 +121,12 @@
             }
             .chart-container {
                 min-height: 400px;
+            }
+            .nav-buttons {
+                flex-direction: column;
+            }
+            .nav-btn {
+                text-align: center;
             }
         }
     </style>
@@ -131,6 +154,9 @@
             <a href="#price-viz" class="nav-btn">Maize Price Analysis</a>
             <a href="#production-viz" class="nav-btn">Production Volume</a>
             <a href="#yield-viz" class="nav-btn">Yield Analysis</a>
+            <a href="#price-irri-viz" class="nav-btn">Price by Farming Method</a>
+            <a href="#production-irri-viz" class="nav-btn">Production by Farming Method</a>
+            <a href="#yield-irri-viz" class="nav-btn">Yield by Farming Method</a>
         </div>
 
         <!-- Visualization 1: Maize Price -->
@@ -207,6 +233,93 @@
                 Data source: [Your yield data source] | Units: Tons per hectare
             </div>
         </div>
+
+        <!-- NEW SECTION: Farming Method Analysis -->
+        <div class="visualization" style="background: #f0f7ff; border-left: 5px solid #2c5282; margin-top: 60px;">
+            <h2 style="color: #2c5282; text-align: center;">🌱 Farming Method Analysis</h2>
+            <p style="text-align: center; color: #4a5568;">
+                The following visualizations differentiate between irrigated and rainfed maize production methods
+            </p>
+        </div>
+
+        <!-- NEW Visualization 4: Price by Farming Method -->
+        <div id="price-irri-viz" class="visualization">
+            <h3 class="viz-title">Figure 4: Maize Price Analysis by Farming Method</h3>
+            
+            <div class="viz-description">
+                <p>This visualization compares price dynamics between irrigated and rainfed maize during drought periods:</p>
+                <ul>
+                    <li>Price differential between irrigated vs. rainfed maize</li>
+                    <li>How drought impacts prices differently by farming method</li>
+                    <li>Regional patterns in price sensitivity by irrigation status</li>
+                    <li>Premium for irrigated maize during drought periods</li>
+                </ul>
+            </div>
+            
+            <div class="methodology-note">
+                <strong>Methodology Note:</strong> This analysis separates maize production into irrigated (with artificial water supply) and rainfed (dependent on natural rainfall) methods to examine differential drought impacts.
+            </div>
+            
+            <div class="chart-container">
+                <!-- Your maize_price_irri.html will be embedded here -->
+                <iframe src="maize_price_irri.html" width="100%" height="500" 
+                        frameborder="0" style="border-radius: 4px;"></iframe>
+            </div>
+            
+            <div class="data-source">
+                Data source: [Your price data source] | Farming method classification: SIAP/SAGARPA
+            </div>
+        </div>
+
+        <!-- NEW Visualization 5: Production Volume by Farming Method -->
+        <div id="production-irri-viz" class="visualization">
+            <h3 class="viz-title">Figure 5: Maize Production Volume by Farming Method</h3>
+            
+            <div class="viz-description">
+                <p>This chart shows production volume differences between irrigated and rainfed maize during droughts:</p>
+                <ul>
+                    <li>Relative resilience of irrigated vs. rainfed production</li>
+                    <li>Share of total production by farming method over time</li>
+                    <li>How drought shifts the composition of production methods</li>
+                    <li>Investment patterns in irrigation infrastructure</li>
+                </ul>
+            </div>
+            
+            <div class="chart-container">
+                <!-- Your maize_production_volume_irri.html will be embedded here -->
+                <iframe src="maize_production_volume_irri.html" width="100%" height="500" 
+                        frameborder="0" style="border-radius: 4px;"></iframe>
+            </div>
+            
+            <div class="data-source">
+                Data source: [Your production data source] | Units: Metric tons by farming method
+            </div>
+        </div>
+
+        <!-- NEW Visualization 6: Yield by Farming Method -->
+        <div id="yield-irri-viz" class="visualization">
+            <h3 class="viz-title">Figure 6: Maize Yield Analysis by Farming Method</h3>
+            
+            <div class="viz-description">
+                <p>This visualization examines yield differences between irrigated and rainfed maize:</p>
+                <ul>
+                    <li>Yield gap between irrigated and rainfed systems</li>
+                    <li>How drought affects yields differently by farming method</li>
+                    <li>Regional variations in irrigation effectiveness</li>
+                    <li>Long-term yield trends for each farming method</li>
+                </ul>
+            </div>
+            
+            <div class="chart-container">
+                <!-- Your maize_yield_irri.html will be embedded here -->
+                <iframe src="maize_yield_irri.html" width="100%" height="500" 
+                        frameborder="0" style="border-radius: 4px;"></iframe>
+            </div>
+            
+            <div class="data-source">
+                Data source: [Your yield data source] | Units: Tons per hectare by farming method
+            </div>
+        </div>
     </section>
 
     <section>
@@ -218,6 +331,8 @@
                 <li><strong>Temporal patterns:</strong> Price impacts peak [Z] months after drought onset, while yield impacts are immediate.</li>
                 <li><strong>Regional disparities:</strong> Northern states experienced [A]% greater price inflation compared to southern states.</li>
                 <li><strong>2023-2024 comparison:</strong> The recent droughts had [B]% more severe impact than 2011-2012, suggesting changing vulnerability patterns.</li>
+                <li><strong>Farming method differences:</strong> Irrigated maize shows [C]% less yield reduction during droughts compared to rainfed maize.</li>
+                <li><strong>Price premiums:</strong> During severe droughts, irrigated maize commands a [D]% price premium over rainfed maize.</li>
             </ol>
             <p><em>Note: Replace these with your actual findings</em></p>
         </div>
@@ -229,9 +344,10 @@
             <p><strong>Interactive features may include:</strong></p>
             <ul>
                 <li><strong>Hover:</strong> View exact values for specific years/regions</li>
-                <li><strong>Click:</strong> Select/deselect specific drought years for comparison</li>
+                <li><strong>Click:</strong> Select/deselect specific drought years or farming methods for comparison</li>
                 <li><strong>Zoom:</strong> Focus on specific time periods or regions</li>
-                <li><strong>Filter:</strong> Show/hide different states or metrics</li>
+                <li><strong>Filter:</strong> Show/hide different states, metrics, or farming methods</li>
+                <li><strong>Toggle:</strong> Switch between irrigated and rainfed views in the farming method visualizations</li>
             </ul>
             <p>Each visualization is self-contained and works in modern web browsers.</p>
         </div>
